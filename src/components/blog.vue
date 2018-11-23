@@ -1,33 +1,38 @@
 <template>
-    <div class="blog">
-        <section>
-            <div class="blog-card">
-                <p class="card-title">
-                    卡片标题
-                </p>
-                <p class="card-time">
-                    2018-01-02
-                </p>
-                <p class="card-abstract">
-                    卡品简介
-                </p>
-                <div class="card-reply">
-                    <div class="reply-air">
-                        10
-                    </div>
-                </div>
-                <ul class="card-label">
-                    <li>
-                        <span class="label-tag">
-                            标签
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-    </div>
+  <div class="blog">
+    <section>
+      <div class="blog-card">
+        <p class="card-title">卡片标题</p>
+        <!--
+          <p class="card-time">
+              2018-01-02
+          </p>
+        -->
+        <p class="card-abstract">
+          卡品简介 <a href="www.baidu.com">查看详情</a>
+        </p>
+        <!--
+          <div class="card-reply">
+              <div class="reply-air">
+                  10
+              </div>
+          </div>
+        -->
+        <div class="card-time-point">
+          <div class="time-point">
+            <i class="item-point point-one"></i>
+            <i class="item-point point-two"></i>
+            <i class="item-point point-three"></i>
+            <p>2018-01-02</p>
+          </div>
+        </div>
+        <ul class="card-label">
+          <li><span class="label-tag">标签</span></li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </template>
-
 <script>
 export default {
   name: "blog"
@@ -61,14 +66,61 @@ export default {
         color: #888;
         font-size: 14px;
       }
+      .card-time-point {
+        position: relative;
+        margin-top: 50px;
+        height: 40px;
+        .item-point,
+        p {
+          display: inline-block;
+          position: absolute;
+        }
+        .point-one {
+          background: url("../assets/img/start.png") no-repeat;
+          width: 20px;
+          height: 40px;
+          left: -19px;
+        }
+        .point-two {
+          background: url("../assets/img/middle.png") repeat;
+          width: 150px;
+          height: 35px;
+          left: -9px;
+        }
+        .point-three {
+          background: url("../assets/img/last.png") no-repeat;
+          background-size: 12.2px;
+          width: 20px;
+          height: 40px;
+          left: 141px;
+        }
+        p {
+          left: 20px;
+          margin: 0;
+          line-height: 35px;
+        }
+        &:after {
+          overflow: hidden;
+        }
+      }
       .card-abstract {
         margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
         color: #000;
         font-size: 16px;
+        text-align: left;
+        a {
+          font-size: 12px;
+          color: #888;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
       .card-reply {
         margin-top: 20px;
-
         .reply-air {
           width: 45px;
           height: 45px;
@@ -86,19 +138,6 @@ export default {
         text-align: left;
         margin: 0;
         padding: 0;
-        .label-tag {
-          display: inline-block;
-          padding: 0 10px;
-          margin: 20px;
-          width: 25px;
-          height: 25px;
-          line-height: 25px;
-          font-size: 12px;
-          color: #fff;
-          background-color: rgb(24, 144, 255);
-          border-radius: 3px;
-          box-shadow: 1px 1px 1px 1px rgb(24, 144, 255);
-        }
       }
     }
   }
