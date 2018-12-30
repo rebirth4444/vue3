@@ -1,9 +1,9 @@
 import axios from 'axios'
-// import { Message, LoadingBar } from 'iview'
+import { Message, LoadingBar } from 'iview'
 import store from '@/store'
 import router from '@/router'
 
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = '/backstage'
 axios.defaults.timeout = 5000
 
 // http请求拦截器
@@ -30,15 +30,14 @@ axios.interceptors.response.use(data => {
         // LoadingBar.error()
         // Message.error('服务器响应格式错误')
     } else {
-        console.log('-----------------------');
-        console.log(data);
-        console.log('-----------------------');
-
+        // console.log('-----------------------');
+        // console.log(data);
+        // console.log('-----------------------');
     }
     // LoadingBar.finish()
     return data.data
 }, error => {
-    // let errmsg = '服务器响应错误'
+    let errmsg = '服务器响应错误'
     if (error.response) {
         switch (error.response.status) {
             case 401:
@@ -48,12 +47,12 @@ axios.interceptors.response.use(data => {
                 break
         }
     }
-    // LoadingBar.error()
+    LoadingBar.error()
     // Message.error(errmsg)
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>');
-    console.log(error.response.data);
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>');
-
-    return Promise.reject(error.response.data)
+    error = error.response;
+    if (error.status == '404' || error.status == '500') {
+        return Promise.reject(error.status);
+    }
+    return Promise.reject(error.data)
 })
 export default axios;

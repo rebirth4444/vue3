@@ -9,7 +9,7 @@ import { api } from "@/api";
 export default {
   methods: {
     api() {
-      api.get().then(res => {
+      api.isLogin().then(res => {
         console.log(res);
       })
     }

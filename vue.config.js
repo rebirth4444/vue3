@@ -37,7 +37,7 @@ module.exports = {
                     //'^/api':''
                 }
             },
-            '/front': {
+            '/backstage': {
                 target: 'http://127.0.0.1:9990',
                 changeOrigin: true,
                 pathRewrite: {
@@ -45,6 +45,7 @@ module.exports = {
                 }
             }
         },
-        before: app => {}
+        before: app => {
+        }
     }
 }
