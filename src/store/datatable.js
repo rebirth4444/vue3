@@ -6,7 +6,7 @@ const datatable = {
         pageIndex: 1,
         dataList: [],
         dataTotal: 0,
-        listInfo: {},
+        dataInfo: {},
         isEditor: false,
         pageLength: [10, 20, 30, 40]
     },
@@ -26,19 +26,19 @@ const datatable = {
             console.log('---------------------');
 
             state.isEditor = true;
-            state.listInfo = info;
+            state.dataInfo = info;
         },
-        CLEAR_INFO(state) {
-            state.listInfo = {};
+        CLEAN_INFO(state) {
+            state.dataInfo = {};
             state.isEditor = false;
         },
-        CLEAR_DATA(state) {
+        CLEAN_DATA(state) {
             state.headerOptions = [];
             state.pageSize = 0;
             state.pageIndex = 1;
             state.dataList = [];
             state.dataTotal = 0;
-            state.listInfo = {};
+            state.dataInfo = {};
             state.isEditor = false;
         },
     },

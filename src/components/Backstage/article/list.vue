@@ -1,7 +1,7 @@
 <template>
   <div>
-    <dataTable :url="test" :isFixed="isFixed" v-bind:isEditor="isEditor"></dataTable>
-    <modals></modals>
+    <dataTable :url="test" :isFixed="isFixed"  v-bind:isEditor="isEditor"></dataTable>
+    <modals v-show="isEditor"></modals>
     <div>{{isEditor}}</div>
   </div>
 </template>

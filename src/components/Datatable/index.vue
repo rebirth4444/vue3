@@ -1,7 +1,15 @@
 
 <template>
   <div>
-    <el-table ref="datatable" :data="dataList" tooltip-effect="dark" border stripe>
+    <el-table
+      v-loading="loading"
+      ref="datatable"
+      :data="dataList"
+      tooltip-effect="dark"
+      :loading="loading"
+      border
+      stripe
+    >
       <el-table-column
         v-if="serialShow === true"
         type="index"
@@ -70,6 +78,7 @@ export default {
   },
   data() {
     return {
+      loading: true,
       headerOptions: this.$store.state.datatable.headerOptions,
       // dataList: this.$store.state.datatable.dataList,
       // dataTotal: this.$store.state.datatable.dataTotal,
@@ -80,7 +89,6 @@ export default {
   },
   beforeMount() {
     this.getTableList();
-    // console.log(this.$store.state.datatable.dataList);
   },
   methods: {
     serial(index) {
@@ -96,6 +104,7 @@ export default {
           pageIndex: this.pageIndex
         };
         await this.$store.dispatch("axiosGet", obj);
+        this.loading = false;
       }
     },
     async edit(scope) {
