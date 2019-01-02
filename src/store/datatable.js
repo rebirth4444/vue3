@@ -21,10 +21,6 @@ const datatable = {
             state.headerOptions = header;
         },
         DATA_INFO(state, info) {
-            console.log('---------------------');
-            console.log(info);
-            console.log('---------------------');
-
             state.isEditor = true;
             state.dataInfo = info;
         },

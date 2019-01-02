@@ -84,12 +84,12 @@ export default {
         .point-two {
           background: url("../assets/img/middle.png") repeat;
           width: 150px;
-          height: 35px;
+          height: 34px;
           left: -9px;
         }
         .point-three {
           background: url("../assets/img/last.png") no-repeat;
-          background-size: 12.2px;
+          background-size: 12px;
           width: 20px;
           height: 40px;
           left: 141px;

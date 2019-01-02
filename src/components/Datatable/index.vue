@@ -82,9 +82,9 @@ export default {
       headerOptions: this.$store.state.datatable.headerOptions,
       // dataList: this.$store.state.datatable.dataList,
       // dataTotal: this.$store.state.datatable.dataTotal,
-      pageSize: this.$store.state.datatable.pageSize,
-      pageIndex: this.$store.state.datatable.pageIndex,
-      pageLength: this.$store.state.datatable.pageLength
+      // pageSize: this.$store.state.datatable.pageSize,
+      // pageIndex: this.$store.state.datatable.pageIndex,
+      // pageLength: this.$store.state.datatable.pageLength
     };
   },
   beforeMount() {
@@ -112,7 +112,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["dataList", "dataTotal"])
+    ...mapGetters([
+      "dataList",
+      "dataTotal",
+      "pageSize",
+      "pageLength",
+      "pageIndex"
+    ])
   }
 };
 </script>

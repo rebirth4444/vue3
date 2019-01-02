@@ -1,7 +1,7 @@
 <template>
   <div>
-    <dataTable :url="test" :isFixed="isFixed"  v-bind:isEditor="isEditor"></dataTable>
-    <modals v-show="isEditor"></modals>
+    <dataTable :url="test" :isFixed="isFixed" v-bind:isEditor="isEditor"></dataTable>
+    <modals :title="title"></modals>
     <div>{{isEditor}}</div>
   </div>
 </template>
@@ -18,6 +18,7 @@ export default {
     return {
       test: "/blog/list",
       isFixed: true,
+      title: "文章",
       headerOptions: [
         {
           label: "id",
